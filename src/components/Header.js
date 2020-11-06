@@ -7,8 +7,8 @@ function Header() {
             <div>
                 <div className="jumbotron jumbotron-fluid">
                     <div className="container">
-                        <h1 className="display-4">GenericCo Employee Database</h1>
-                        <p className="lead">Search the employee database below</p>
+                        <h1 className="display-4">GeneriCo Employee Database</h1>
+                        <p className="lead">Products for People</p>
                     </div>
                 </div>
             </div>

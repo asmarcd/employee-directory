@@ -11,9 +11,20 @@ class SearchTools extends Component {
 
     componentDidMount() {
         API.allEmployees().then(res => {
-            console.log(res)
-            // this.setState({ results: res.})
+            const employees = res.data.results;
+            console.log(employees);
+            this.setState({ results: employees });
         })
+    }
+
+    handleInputChange = event => {
+        this.setState({
+            searchName: event.target.value
+        })
+    }
+
+    searchByName = name => {
+
     }
 
     render() {
@@ -21,7 +32,7 @@ class SearchTools extends Component {
             <div className="SearchTools">
                 <div>
                     <form>
-                        <input name="searchName" value={this.state.searchName} />
+                        <input name="searchName" value={this.state.searchName} onChange={this.handleInputChange} />
                         <datalist>
                             {this.state.sortOptions.map(sortChoice => <option>{sortChoice}</option>)}
                         </datalist>
