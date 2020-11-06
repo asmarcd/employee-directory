@@ -7,24 +7,35 @@ class SearchTools extends Component {
         searchName: "",
         sortOptions: [],
         results: []
-    }
+    };
+
+
 
     componentDidMount() {
         API.allEmployees().then(res => {
             const employees = res.data.results;
             console.log(employees);
             this.setState({ results: employees });
-        })
-    }
+        });
+    };
 
     handleInputChange = event => {
         this.setState({
             searchName: event.target.value
-        })
-    }
+        });
+    };
+
+    handleFormSubmit = event => {
+        event.preventDefault();
+        API.searchByName(this.state.searchName).then(res => {
+            const employees = res.data.results;
+            this.setState({ results: employees })
+            // This function isn't quite right. it isn't the handleFormSubmit, it's the search by name functionality. Might have to split the search and filter into two diferent forms below to make the work simultaenously.
+        });
+    };
 
     searchByName = name => {
-
+// Not done yet
     }
 
     render() {
@@ -39,6 +50,8 @@ class SearchTools extends Component {
                         <input name="sortBy" list="sortOptions" value={this.state.sortBy} />
                         <button>Update</button>
                     </form>
+                    {this.state.results.map(employees => employees)}
+                    {/* use employees results here to display the results. Could this be a module itself in another component then fed into here? Don't see why not. */}
                 </div>
             </div>
         )
