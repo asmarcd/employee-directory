@@ -1,17 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'));
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// TODO: Component for header
+// TODO: Component for Table of Employees
+// TODO: Filter capability - filter based on elements on each employee's profile
+// TODO: Sort capability - organize the employees in different orders based on alphabetical by name, birthday, or address, for example
+// TODO: On page load, show all employees
+// TODO: Component for user's tools for searching/filtering/sorting
