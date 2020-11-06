@@ -1,33 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Header extends Component {
+function Header() {
 
-
-    render() {
-        return (
-            <div className="Header">
-                <div>
-                    <div className="jumbotron jumbotron-fluid">
-                        <div className="container">
-                            <h1 className="display-4">GenericCo Employee Database</h1>
-                            <p className="lead">Search the employee database below</p>
-                        </div>
+    return (
+        <div className="Header" >
+            <div>
+                <div className="jumbotron jumbotron-fluid">
+                    <div className="container">
+                        <h1 className="display-4">GenericCo Employee Database</h1>
+                        <p className="lead">Search the employee database below</p>
                     </div>
                 </div>
-                <div>
-                    <form>
-                        <input name="searchName" value={this.state.searchName} />
-                    </form>
-                    <form>
-                        <datalist>
-                            {}
-                        </datalist>
-                        <input name="filterBy" list="filterOptions" value={this.state.filterBy} />
-                    </form>
-                </div>
             </div>
-        )
-    }
+        </div>
+    )
 }
-
 export default Header;

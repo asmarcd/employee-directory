@@ -11,3 +11,4 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // TODO: Sort capability - organize the employees in different orders based on alphabetical by name, birthday, or address, for example
 // TODO: On page load, show all employees
 // TODO: Component for user's tools for searching/filtering/sorting
+// TODO: Connect API
