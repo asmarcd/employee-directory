@@ -8,7 +8,8 @@ class SearchTools extends Component {
         searchName: "",
         sortOptions: [],
         directory: [],
-        results: []
+        results: [],
+        sortListBy: ""
     };
 
     componentDidMount() {
@@ -47,7 +48,42 @@ class SearchTools extends Component {
         }
     };
 
-    sortBy
+    sortByName = () => {
+        this.setState({
+            sortListBy: "name"
+        });
+
+        this.state.results.sort((a, b) => {
+            let textA = a.name.last.toUpperCase();
+            let textB = b.name.last.toUpperCase();
+            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        })
+    };
+
+    sortByCity = () => {
+        this.setState({
+            sortListBy: "city"
+        });
+
+        this.state.results.sort((a, b) => {
+            let textA = a.location.city.toUpperCase();
+            let textB = b.location.city.toUpperCase();
+            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        });
+    };
+
+
+    sortByCountry = () => {
+        this.setState({
+            sortListBy: "country"
+        });
+
+        this.state.results.sort((a, b) => {
+            let textA = a.location.country.toUpperCase();
+            let textB = b.location.country.toUpperCase();
+            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        });
+    };
 
     render() {
         return (
@@ -64,9 +100,9 @@ class SearchTools extends Component {
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1">Name</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">City</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Country</Dropdown.Item>
+                            <Dropdown.Item onClick={this.sortByName}>Name</Dropdown.Item>
+                            <Dropdown.Item onClick={this.sortByCity}>City</Dropdown.Item>
+                            <Dropdown.Item onClick={this.sortByCountry}>Country</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 </div>
