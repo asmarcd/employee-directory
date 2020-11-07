@@ -8,7 +8,7 @@ class SearchResults extends Component {
     };
 
     componentDidMount() {
-        API.allEmployees().then(res => {
+        API.allEmployees().then(res => { 
             const employees = res.data.results;
             console.log(employees);
             this.setState({ results: employees })
