@@ -15,7 +15,8 @@ class SearchTools extends Component {
         API.allEmployees().then(res => {
             const employees = res.data.results;
             console.log(employees);
-            this.setState({ results: employees });
+            // this.setState({ results: employees });
+            // for loop over each result and build the variables needed to create the cards.
         });
     };
 
@@ -29,7 +30,7 @@ class SearchTools extends Component {
         event.preventDefault();
         API.searchByName(this.state.searchName).then(res => {
             const employees = res.data.results;
-            this.setState({ results: employees })
+            // this.setState({ results: employees })
             // This function isn't quite right. it isn't the handleFormSubmit, it's the search by name functionality. Might have to split the search and filter into two diferent forms below to make the work simultaenously.
         });
     };
