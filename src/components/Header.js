@@ -1,6 +1,8 @@
 import React from "react";
 import "./style.css"
 
+// This module controls the header at the top of the page
+
 function Header() {
 
     return (

@@ -3,16 +3,19 @@ import API from "../utils/API";
 import Dropdown from "react-bootstrap/Dropdown";
 import "./style.css"
 
+// This module controls the search tools and the relevant results based on what the user searches for/sorts by
+
 class SearchTools extends Component {
 
+    // Initial state
     state = {
         searchName: "",
-        sortOptions: [],
         directory: [],
         results: [],
         sortListBy: ""
     };
 
+    // When the page loads, access the Random User Generator API and display all results on the page
     componentDidMount() {
         API.allEmployees().then(res => {
             const employees = res.data.results;
@@ -20,6 +23,7 @@ class SearchTools extends Component {
         });
     };
 
+    // When the user types something into the Search bar, update the state of searchName to match what they've typed 
     handleInputChange = event => {
         event.preventDefault();
         this.setState({
@@ -27,11 +31,7 @@ class SearchTools extends Component {
         });
     };
 
-    handleFormSubmit = event => {
-        event.preventDefault();
-
-    };
-
+    // After handleInputChange has updated searchName, loop over the array of employees and check if their first name, last name, or full name matches what the user searched for. If it does, display only those employees by setting the state of results to the new array. If the user empties the search bar, show all employees again.
     searchByName = event => {
         event.preventDefault();
         let nameResults = [];
@@ -49,6 +49,7 @@ class SearchTools extends Component {
         }
     };
 
+    // Sorts the array of employee results alphabetically by last name
     sortByName = () => {
         this.setState({
             sortListBy: "name"
@@ -61,6 +62,7 @@ class SearchTools extends Component {
         })
     };
 
+    // Sorts the array of employee results alphabetically by city
     sortByCity = () => {
         this.setState({
             sortListBy: "city"
@@ -73,7 +75,7 @@ class SearchTools extends Component {
         });
     };
 
-
+    // Sorts the array of employee results alphabetically by country
     sortByCountry = () => {
         this.setState({
             sortListBy: "country"
