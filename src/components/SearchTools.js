@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
+import Dropdown from "react-bootstrap/Dropdown";
 
 class SearchTools extends Component {
 
@@ -42,9 +43,11 @@ class SearchTools extends Component {
         this.setState({ results: nameResults })
 
         if (this.state.searchName === "") {
-            this.setState({results: this.state.directory})
+            this.setState({ results: this.state.directory })
         }
-    }
+    };
+
+    sortBy
 
     render() {
         return (
@@ -52,9 +55,20 @@ class SearchTools extends Component {
                 <div>
                     <form>
                         <input name="searchName" value={this.state.searchName} onChange={this.handleInputChange} placeholder="Search by Name" />
-                        <input name="sortBy" list="sortOptions" value={this.state.sortBy} />
                         <button onClick={this.searchByName}>Update</button>
                     </form>
+                    <br />
+                    <Dropdown>
+                        <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                            Sort
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="#/action-1">Name</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">City</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Country</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
                 </div>
                 <br />
                 <div className="card-deck">
