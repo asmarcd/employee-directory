@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import Dropdown from "react-bootstrap/Dropdown";
+import "./style.css"
 
 class SearchTools extends Component {
 
@@ -87,7 +88,7 @@ class SearchTools extends Component {
 
     render() {
         return (
-            <div className="SearchTools">
+            <div className="SearchTools container">
                 <div>
                     <form>
                         <input name="searchName" value={this.state.searchName} onChange={this.handleInputChange} placeholder="Search by Name" />
